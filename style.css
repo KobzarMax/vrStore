@@ -5,6 +5,14 @@
   font-family: "Inter", sans-serif;
 }
 
+button {
+  border: none;
+}
+
+a {
+  text-decoration: none;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -118,7 +126,7 @@ body._lock {
   padding: 114px 0;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  max-width: 1080px;
+  max-width: 1120px;
   align-items: center;
   justify-content: center;
   gap: 24px;
@@ -126,6 +134,61 @@ body._lock {
 .hero-cta-image-wrapper img {
   width: 100%;
   border-radius: 100%;
+}
+.hero-cta-title {
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  font-size: 64px;
+  line-height: 77px;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+.hero-cta-title span {
+  color: #11b4e8;
+}
+.hero-cta-subtitle {
+  margin-top: 20px;
+  margin-bottom: 38px;
+  font-size: 24px;
+  line-height: 30px;
+  color: #ffffff;
+}
+
+.hero-cta-button {
+  border-radius: 15px;
+  padding: 24px 66px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  color: #000000;
+  background-color: #11b4e8;
+  border: none;
+  font-weight: 500;
+  line-height: 19px;
+  font-size: 16px;
+}
+
+.section_title {
+  margin-bottom: 50px;
+  font-size: 48px;
+  font-weight: 700;
+  text-align: center;
+  color: #ffffff;
+}
+.offers-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 1110px;
+  margin: 0 auto 195px;
+  gap: 30px 32px;
+}
+.offer-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .faq-answer-item {
