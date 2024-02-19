@@ -377,10 +377,22 @@ body._lock {
   border-radius: 15px;
   border: 1px solid #11b4e8;
   background-color: #000000;
-  min-height: 390px;
+  min-height: 320px;
+  transition: 0.3s all;
+  opacity: 25%;
+}
+.pop-games-slider-item.swiper-slide-active {
+  height: 390px;
+  opacity: 1;
   transition: 0.3s all;
 }
+.swiper-wrapper {
+  align-items: end;
+}
 
+.pop-games-slider-item.swiper-slide-active .pop-slider-text {
+  height: calc(390px - 186px);
+}
 .pop-games-slider-images-wrapper,
 .pop-games-slider-images-wrapper .pop-game-main-image {
   border-top-left-radius: 15px;
@@ -416,7 +428,6 @@ body._lock {
   line-height: 24px;
   color: #ffffff;
   position: relative;
-  height: calc(390px - 186px);
   overflow: hidden;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
@@ -470,29 +481,28 @@ body._lock {
   z-index: -1 !important;
 }
 
-.pop-games-slider .slide-arrow {
-  position: absolute;
-  top: 94%;
-  font-size: 0;
-  width: 50px;
-  height: 50px;
-  cursor: pointer;
-}
-
-.pop-games-slider .slide-arrow.prev-arrow {
-  left: 36%;
+.swiper-button-next {
+  position: relative !important;
   border: 1px solid #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
   background-color: transparent;
-  transform: rotate(180deg);
   z-index: 10 !important;
+  left: 0 !important;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+.swiper-button-next:after, .swiper-button-prev:after {
+  display: none !important;
+  content: "";
 }
 
-.pop-games-slider .slide-arrow.next-arrow {
-  right: 35%;
+.swiper-button-prev {
+  position: relative !important;
+  transform: rotate(180deg);
   border: 1px solid #ffffff;
   display: flex;
   align-items: center;
@@ -500,15 +510,12 @@ body._lock {
   border-radius: 50%;
   background-color: transparent;
   z-index: 10;
+  left: 0 !important;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
 }
-.pop-games-slider .slick-dots {
-  margin-top: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-}
-.pop-games-slider .slick-dots li button {
+.swiper-pagination-bullet {
   font-size: 0;
   border: none;
   background-color: #e9ecef;
@@ -518,9 +525,10 @@ body._lock {
   transition: 0.3s all;
   border-radius: 100%;
   cursor: pointer;
+  margin: 0 !important;
 }
 
-.pop-games-slider .slick-dots li.slick-active button {
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
   opacity: 1;
   background-color: #11b4e8;
   width: 20px;
@@ -529,7 +537,26 @@ body._lock {
 
 .swiper {
   width: 100%;
-  height: 400px;
+  height: fit-content;
+}
+
+.swiper-pagination {
+  position: relative;
+  width: fit-content !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  bottom: 0 !important;
+  margin-bottom: 25px;
+}
+.swiper-controllers {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 80px;
+  gap: 100px;
 }
 
 .faq-answer-item {

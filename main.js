@@ -130,7 +130,6 @@ document.addEventListener("DOMContentLoaded", () => {
     slidesPerView: 1,
     spaceBetween: 20,
     centeredSlides: true,
-    centeredSlides: true,
     breakpoints: {
       640: {
         slidesPerView: 2,
