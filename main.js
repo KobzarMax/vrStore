@@ -122,3 +122,65 @@ window.addEventListener("scroll", () => {
     header.classList.remove(toggleClass);
   }
 });
+
+$(document).ready(function() {
+  // Initialize Slick slider
+  var slider = $('.pop-games-slider').slick({
+    prevArrow: '<button class="slide-arrow next-arrow"><img src="./asset/arrow.svg" alt=""></button>',
+    nextArrow: '<button class="slide-arrow prev-arrow"><img src="./asset/arrow.svg" alt=""></button>',
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    centerMode: true,
+    responsive: [
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 3
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1
+        }
+      },
+    ],
+    arrows: true,
+    dots: true
+  });
+
+  function addAdditionalClassToClosestSlides() {
+    const slides = document.querySelectorAll('.pop-games-slider .slick-slide');
+
+    slides.forEach((slide) => slide.classList.remove('closest-slide'))
+
+    const centerSlideIndex = document.querySelector('.pop-games-slider .slick-current').getAttribute('data-slick-index');
+
+    const prevSlideIndex = Number(centerSlideIndex - 1);
+    const prevPrevSlideIndex = Number(prevSlideIndex - 1);
+
+    const prevSlide = Array.from(slides).find((slide) => parseInt(slide.getAttribute('data-slick-index')) === prevSlideIndex);
+    const prevPrevSlide = Array.from(slides).find((slide) => parseInt(slide.getAttribute('data-slick-index')) === prevPrevSlideIndex);
+
+    const nextSlideIndex = Number(centerSlideIndex + 1);
+    const nextNextSlideIndex = Number(nextSlideIndex + 1);
+
+    const nextSlide = Array.from(slides).find((slide) => parseInt(slide.getAttribute('data-slick-index')) === nextSlideIndex);
+    const nextNextSlide = Array.from(slides).find((slide) => parseInt(slide.getAttribute('data-slick-index')) === nextNextSlideIndex);
+
+    console.log(prevSlide, nextSlide, prevPrevSlide, nextNextSlide)
+
+    prevSlide.classList.add('closest-slide');
+    nextSlide.classList.add('closest-slide');
+    prevPrevSlide.classList.add('farest-slide');
+    nextNextSlide.classList.add('farest-slide');
+  }
+
+  // Call the function initially
+  addAdditionalClassToClosestSlides();
+
+  // Listen to the afterChange event and call the function
+  slider.on('afterChange', function() {
+    addAdditionalClassToClosestSlides();
+  });
+});
