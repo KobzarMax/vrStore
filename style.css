@@ -196,11 +196,15 @@ body._lock {
 }
 .offer-list-item:before {
   position: absolute;
-  content: '';
+  content: "";
   width: 500px;
   height: 500px;
   filter: blur(10px);
-  background: radial-gradient(70.71% 70.71% at 50% 50%, rgb(32, 153, 221) 0%, rgb(0, 0, 0) 60.00000238418579%);
+  background: radial-gradient(
+    70.71% 70.71% at 50% 50%,
+    rgb(32, 153, 221) 0%,
+    rgb(0, 0, 0) 60.00000238418579%
+  );
   top: -200px;
   left: -310px;
   z-index: 0;
@@ -275,7 +279,11 @@ body._lock {
   align-items: center;
   justify-content: space-between;
   padding: 25px 56px 25px 30px;
-  background: linear-gradient(88deg, rgba(255, 255, 255, 0.1) 0.36%, rgba(255, 255, 255, 0) 99.55%);
+  background: linear-gradient(
+    88deg,
+    rgba(255, 255, 255, 0.1) 0.36%,
+    rgba(255, 255, 255, 0) 99.55%
+  );
   border-radius: 10px;
 }
 .vouchers-cta span {
@@ -304,7 +312,7 @@ body._lock {
 .services-subtitle {
   font-size: 16px;
   line-height: 22.5px;
-  color: #C2C2C2;
+  color: #c2c2c2;
   text-align: center;
   margin-bottom: 62px;
 }
@@ -367,13 +375,14 @@ body._lock {
 .pop-games-slider-item {
   max-width: 275px;
   border-radius: 15px;
-  border: 1px solid #11B4E8;
+  border: 1px solid #11b4e8;
   background-color: #000000;
   min-height: 390px;
   transition: 0.3s all;
 }
 
-.pop-games-slider-images-wrapper, .pop-games-slider-images-wrapper .pop-game-main-image {
+.pop-games-slider-images-wrapper,
+.pop-games-slider-images-wrapper .pop-game-main-image {
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   width: 100%;
@@ -418,14 +427,18 @@ body._lock {
 }
 .pop-slider-text:after {
   position: absolute;
-  content: '';
+  content: "";
   width: 500px;
   height: 500px;
   z-index: 0;
   filter: blur(10px);
   left: 35%;
   top: 0;
-  background: radial-gradient(70.71% 70.71% at 50% 50%, rgb(32, 153, 221) 0%, rgb(0, 0, 0) 60.00000238418579%);
+  background: radial-gradient(
+    70.71% 70.71% at 50% 50%,
+    rgb(32, 153, 221) 0%,
+    rgb(0, 0, 0) 60.00000238418579%
+  );
 }
 .pop-games-slider-item.farest-slide {
   opacity: 0.4;
@@ -445,12 +458,11 @@ body._lock {
   height: 100%;
 }
 
-
 .pop-games-slider .slick-list {
   overflow: hidden;
 }
 
-.pop-games-slider .slick-track{
+.pop-games-slider .slick-track {
   display: flex;
   align-items: flex-end;
   justify-content: space-around;
@@ -467,7 +479,7 @@ body._lock {
   cursor: pointer;
 }
 
-.pop-games-slider .slide-arrow.prev-arrow{
+.pop-games-slider .slide-arrow.prev-arrow {
   left: 36%;
   border: 1px solid #ffffff;
   display: flex;
@@ -479,7 +491,7 @@ body._lock {
   z-index: 10 !important;
 }
 
-.pop-games-slider .slide-arrow.next-arrow{
+.pop-games-slider .slide-arrow.next-arrow {
   right: 35%;
   border: 1px solid #ffffff;
   display: flex;
@@ -499,7 +511,7 @@ body._lock {
 .pop-games-slider .slick-dots li button {
   font-size: 0;
   border: none;
-  background-color: #E9ECEF;
+  background-color: #e9ecef;
   opacity: 0.4;
   width: 8px;
   height: 8px;
@@ -510,9 +522,14 @@ body._lock {
 
 .pop-games-slider .slick-dots li.slick-active button {
   opacity: 1;
-  background-color: #11B4E8;
+  background-color: #11b4e8;
   width: 20px;
   border-radius: 3.5px;
+}
+
+.swiper {
+  width: 100%;
+  height: 400px;
 }
 
 .faq-answer-item {
