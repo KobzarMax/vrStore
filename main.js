@@ -123,8 +123,78 @@ window.addEventListener("scroll", () => {
   }
 });
 
+/* SLIDE UP */
+let swiperActiveSlideUp = (target, duration = 500) => {
+  target.style.transitionProperty = "height, margin, padding";
+  target.style.transitionDuration = duration + "ms";
+  target.style.boxSizing = "border-box";
+  target.style.height = 390 + "px";
+  target.offsetHeight;
+  target.style.overflow = "hidden";
+  target.style.paddingTop = 0;
+  target.style.paddingBottom = 0;
+  target.style.marginTop = 0;
+  target.style.marginBottom = 0;
+
+  window.setTimeout(() => {
+    target.style.removeProperty("padding-top");
+    target.style.removeProperty("padding-bottom");
+    target.style.removeProperty("margin-top");
+    target.style.removeProperty("margin-bottom");
+    target.style.removeProperty("overflow");
+    target.style.removeProperty("transition-duration");
+    target.style.removeProperty("transition-property");
+  }, duration);
+};
+
+let swiperNextToActiveSlideUp = (target, duration = 500) => {
+  target.style.transitionProperty = "height, margin, padding";
+  target.style.transitionDuration = duration + "ms";
+  target.style.boxSizing = "border-box";
+  target.style.height = 360 + "px";
+  target.offsetHeight;
+  target.style.overflow = "hidden";
+  target.style.paddingTop = 0;
+  target.style.paddingBottom = 0;
+  target.style.marginTop = 0;
+  target.style.marginBottom = 0;
+
+  window.setTimeout(() => {
+    target.style.removeProperty("padding-top");
+    target.style.removeProperty("padding-bottom");
+    target.style.removeProperty("margin-top");
+    target.style.removeProperty("margin-bottom");
+    target.style.removeProperty("overflow");
+    target.style.removeProperty("transition-duration");
+    target.style.removeProperty("transition-property");
+  }, duration);
+};
+
+let swiperlastSlideUp = (target, duration = 500) => {
+  target.style.transitionProperty = "height, margin, padding";
+  target.style.transitionDuration = duration + "ms";
+  target.style.boxSizing = "border-box";
+  target.style.height = 320 + "px";
+  target.offsetHeight;
+  target.style.overflow = "hidden";
+  target.style.paddingTop = 0;
+  target.style.paddingBottom = 0;
+  target.style.marginTop = 0;
+  target.style.marginBottom = 0;
+
+  window.setTimeout(() => {
+    target.style.removeProperty("padding-top");
+    target.style.removeProperty("padding-bottom");
+    target.style.removeProperty("margin-top");
+    target.style.removeProperty("margin-bottom");
+    target.style.removeProperty("overflow");
+    target.style.removeProperty("transition-duration");
+    target.style.removeProperty("transition-property");
+  }, duration);
+};
+
 document.addEventListener("DOMContentLoaded", () => {
-  const swiper = new Swiper(".swiper", {
+  new Swiper(".pop-games-swiper", {
     // Optional parameters
     loop: true,
     slidesPerView: 1,
@@ -147,7 +217,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // If we need pagination
     pagination: {
-      el: ".swiper-pagination",
+      el: ".pop-games-swiper-pagination",
       clickable: true,
       renderBullet: function (index, className) {
         return '<span class="' + className + '">' + (index + 1) + "</span>";
@@ -156,13 +226,62 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Navigation arrows
     navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
+      nextEl: ".pop-games-swiper-button-next",
+      prevEl: ".pop-games-swiper-button-prev",
     },
 
-    // And if we need scrollbar
-    scrollbar: {
-      el: ".swiper-scrollbar",
+    on: {
+      slideChange: function () {
+        const newActiveSlideIndex = this.activeIndex;
+        const newActiveSlide = this.slides[newActiveSlideIndex];
+        swiperActiveSlideUp(newActiveSlide);
+
+        // Get the new previous slide
+        const newPrevSlide = this.slides[+newActiveSlideIndex - 1];
+        if (newPrevSlide) {
+          swiperNextToActiveSlideUp(newPrevSlide);
+        }
+
+        // Get the new next slide
+        const newNextSlide = this.slides[+newActiveSlideIndex + 1];
+        if (newNextSlide) {
+          swiperNextToActiveSlideUp(newNextSlide);
+        }
+        // Get the new previous slide
+        const newPrevPrevSlide = this.slides[+newActiveSlideIndex - 2];
+        if (newPrevPrevSlide) {
+          swiperlastSlideUp(newPrevPrevSlide);
+        }
+
+        // Get the new next slide
+        const newNextNextSlide = this.slides[+newActiveSlideIndex + 2];
+        if (newNextNextSlide) {
+          swiperlastSlideUp(newNextNextSlide);
+        }
+      },
+    },
+  });
+
+  new Swiper(".feedback-swiper", {
+    // Optional parameters
+    loop: true,
+    slidesPerView: 2,
+    centeredSlides: true,
+    spaceBetween: 30,
+
+    // If we need pagination
+    pagination: {
+      el: ".feedback-swiper-pagination",
+      clickable: true,
+      renderBullet: function (index, className) {
+        return '<span class="' + className + '">' + (index + 1) + "</span>";
+      },
+    },
+
+    // Navigation arrows
+    navigation: {
+      nextEl: ".feedback-swiper-button-next",
+      prevEl: ".feedback-swiper-button-prev",
     },
   });
 });
