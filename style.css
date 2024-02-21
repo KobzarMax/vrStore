@@ -203,6 +203,17 @@ body._lock {
   overflow: hidden;
   border-radius: 15px;
   cursor: pointer;
+  transition: 0.3s all;
+}
+.offer-list-item:hover {
+  transform: scale(1.02);
+  border-style: none;
+  --border-radius: 15px 15px 15px 15px;
+  --border-top-left-radius: 15px;
+  --border-top-right-radius: 15px;
+  --border-bottom-right-radius: 15px;
+  --border-bottom-left-radius: 15px;
+  box-shadow: 0px 0px 15px 0px #11B4E8;
 }
 .offers-list {
   position: relative;
@@ -266,13 +277,28 @@ body._lock {
   grid-template-columns: repeat(2, 1fr);
   gap: 80px;
 }
-.vouchers-image-wrapper img {
-  width: 100%;
+.vouchers-images-wrapper .voucher-image-wrapper {
   transition: 0.5s all;
   cursor: pointer;
+  border-radius: 41px;
+  width: 180px;
+  height: 180px;
+  transform: rotate(14deg);
 }
-.vouchers-image-wrapper img:hover {
+.vouchers-images-wrapper img {
+  border-radius: 41px;
+  transform: rotate(-14deg);
+  width: 180px;
+  height: 180px;
+}
+.vouchers-images-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px;
+}
+.vouchers-images-wrapper .voucher-image-wrapper:hover {
   transform: scale(1.1);
+  box-shadow: 0px 0px 15px 0px #2099DD;
 }
 .vouchers-content {
   display: flex;
@@ -1233,9 +1259,11 @@ body._lock {
     padding: 20px 0 20px 10px;
   }
   .vouchers {
-    grid-template-columns: 65% 35%;
     gap: 0;
     margin-bottom: 80px;
+  }
+  .vouchers-images-wrapper {
+    gap: 20px;
   }
   .service-item {
     width: 160px;
@@ -1263,6 +1291,16 @@ body._lock {
 @media (max-width: 768px) {
   .footer-inner {
     flex-direction: column;
+  }
+  .vouchers {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+  }
+  .vouchers-images-wrapper {
+    gap: 50px;
   }
   .quick-links-list,
   .footer-legal-links {
@@ -1345,11 +1383,15 @@ body._lock {
   .offer-list-item:before {
     left: -160px;
   }
-  .vouchers-image-wrapper {
-    display: none;
+  .vouchers-images-wrapper {
+    gap: 20px;
   }
   .vouchers {
     grid-template-columns: 1fr;
+  }
+  .vouchers-images-wrapper img, .vouchers-images-wrapper .voucher-image-wrapper {
+    width: 120px;
+    height: 120px;
   }
   .services {
     margin-bottom: 40px;
