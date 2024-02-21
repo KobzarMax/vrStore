@@ -312,16 +312,21 @@ document.addEventListener("DOMContentLoaded", () => {
       mobileNav.classList.toggle("_active");
       document.body.classList.toggle("_lock");
     });
-
-    // Add event listener to the document body
-    document.body.addEventListener("click", function (e) {
-      // Check if the click target is not within the header-nav-wrapper
-      if (!mobileNav.contains(e.target) && !burger.contains(e.target)) {
-        // Remove the _active class
-        burger.classList.remove("_active");
-        mobileNav.classList.remove("_active");
-        document.body.classList.remove("_lock");
-      }
-    });
   }
+});
+
+const overlay = document.querySelector(".overlay");
+const offerItems = document.querySelectorAll(".offer-list-item");
+const closeModal = document.getElementById("close-modal");
+
+offerItems.forEach((offerItem) => {
+  offerItem.addEventListener("click", () => {
+    overlay.classList.toggle("_active");
+    document.body.classList.toggle("_lock");
+  });
+});
+
+closeModal.addEventListener("click", () => {
+  overlay.classList.toggle("_active");
+  document.body.classList.toggle("_lock");
 });
