@@ -197,12 +197,20 @@ document.addEventListener("DOMContentLoaded", () => {
   new Swiper(".pop-games-swiper", {
     // Optional parameters
     loop: true,
-    slidesPerView: 1,
+    slidesPerView: 1.2,
     spaceBetween: 20,
     centeredSlides: true,
     breakpoints: {
-      640: {
+      372: {
+        slidesPerView: 1.5,
+        spaceBetween: 20,
+      },
+      440: {
         slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      640: {
+        slidesPerView: 3,
         spaceBetween: 20,
       },
       768: {
@@ -316,4 +324,4 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
-})
+});
