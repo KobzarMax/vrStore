@@ -209,9 +209,9 @@ document.addEventListener("DOMContentLoaded", () => {
         slidesPerView: 4,
         spaceBetween: 40,
       },
-      1024: {
+      1200: {
         slidesPerView: 5,
-        spaceBetween: 50,
+        spaceBetween: 20,
       },
     },
 
@@ -265,9 +265,15 @@ document.addEventListener("DOMContentLoaded", () => {
   new Swiper(".feedback-swiper", {
     // Optional parameters
     loop: true,
-    slidesPerView: 2,
+    slidesPerView: 1,
     centeredSlides: true,
     spaceBetween: 30,
+    breakpoints: {
+      1200: {
+        slidesPerView: 2,
+        spaceBetween: 30,
+      },
+    },
 
     // If we need pagination
     pagination: {
@@ -285,3 +291,29 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const navLinks = document.querySelectorAll(".header-nav-link");
+
+  const burger = document.querySelector(".menu-icon");
+  const mobileNav = document.querySelector(".header-wrapper");
+
+  if (burger) {
+    burger.addEventListener("click", function (e) {
+      burger.classList.toggle("_active");
+      mobileNav.classList.toggle("_active");
+      document.body.classList.toggle("_lock");
+    });
+
+    // Add event listener to the document body
+    document.body.addEventListener("click", function (e) {
+      // Check if the click target is not within the header-nav-wrapper
+      if (!mobileNav.contains(e.target) && !burger.contains(e.target)) {
+        // Remove the _active class
+        burger.classList.remove("_active");
+        mobileNav.classList.remove("_active");
+        document.body.classList.remove("_lock");
+      }
+    });
+  }
+})
